@@ -1,0 +1,19 @@
+[include]
+	path = /Users/slick/.config/delta/catppuccin.gitconfig
+[core]
+	editor = nvim
+	pager = delta
+[user]
+	name = Aleksandre Ghvineria
+	email = ghvinerias@gmail.com
+	username = ghvinerias
+[init]
+	defaultBranch = main
+[interactive]
+  diffFilter = delta --color-only
+[delta]
+  navigate = true
+	features = catppuccin-mocha
+	; features = catppuccin-latte
+[merge]
+  conflictstyle = zdiff3

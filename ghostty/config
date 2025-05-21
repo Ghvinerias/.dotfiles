@@ -1,0 +1,7 @@
+font-family = GeistMono Nerd Font Mono
+font-size = 14
+theme = catppuccin-mocha
+font-feature = -liga
+macos-titlebar-style = hidden
+macos-option-as-alt = true
+cursor-invert-fg-bg = true
