@@ -64,7 +64,7 @@ alias ls="eza -alf --color=always --sort=size"
 # alias aoc="python3 main.py < in.txt"
 # alias aot="python3 main.py < test.txt"
 
-alias lg=lazygit --use-config-file="/Users/m/Library/Application Support/lazygit/config.yml,/Users/m/Library/Application Support/lazygit/catppuccin-mocha.yml"
+alias lg=lazygit --use-config-file="/Users/Slick/Library/Application Support/lazygit/config.yml,/Users/Slick/Library/Application Support/lazygit/catppuccin-mocha.yml"
 
 function create_repo() {
     gh repo create "$2" --public --source="$1" --remote=origin --push
@@ -85,14 +85,14 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # bun completions
-[ -s "/Users/m/.bun/_bun" ] && source "/Users/m/.bun/_bun"
+[ -s "/Users/Slick/.bun/_bun" ] && source "/Users/Slick/.bun/_bun"
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
 eval "$(starship init zsh)"
-# . "/Users/m/.deno/env"
+# . "/Users/Slick/.deno/env"
 
 source ~/.dotfiles/catppuccin_mocha-zsh-syntax-highlighting.zsh
 
@@ -104,7 +104,7 @@ source <(fzf --zsh)
 # . "$HOME/.cargo/env"
 
 # pnpm
-export PNPM_HOME="/Users/m/Library/pnpm"
+export PNPM_HOME="/Users/Slick/Library/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
@@ -112,6 +112,6 @@ esac
 # pnpm end
 
 # Added by Windsurf
-# export PATH="/Users/m/.codeium/windsurf/bin:$PATH"
+# export PATH="/Users/Slick/.codeium/windsurf/bin:$PATH"
 # export PATH="/opt/homebrew/opt/postgresql@17/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"

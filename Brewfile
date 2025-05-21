@@ -99,3 +99,4 @@ cask "visual-studio-code@insiders"
 brew "colima"
 # Better Top Bar For Aerospace
 brew "sketchybar"
+cask "font-hack-nerd-font"

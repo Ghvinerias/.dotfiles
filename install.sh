@@ -20,18 +20,18 @@ CONFIG_DIR="$HOME/.config"
 mkdir -p "$CONFIG_DIR"
 
 # Install Homebrew if not already installed
-if ! command -v brew &> /dev/null; then
+if ! command -v brew &>/dev/null; then
   echo "Installing Homebrew..."
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-  
+
   # Add Homebrew to PATH
   if [[ $(uname -m) == "arm64" ]]; then
     # For Apple Silicon
-    echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> "$HOME/.zprofile"
+    echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >>"$HOME/.zprofile"
     eval "$(/opt/homebrew/bin/brew shellenv)"
   else
     # For Intel
-    echo 'eval "$(/usr/local/bin/brew shellenv)"' >> "$HOME/.zprofile"
+    echo 'eval "$(/usr/local/bin/brew shellenv)"' >>"$HOME/.zprofile"
     eval "$(/usr/local/bin/brew shellenv)"
   fi
 else
@@ -72,7 +72,7 @@ fi
 create_symlink() {
   local src="$1"
   local dest="$2"
-  
+
   if [ -e "$dest" ]; then
     if [ ! -L "$dest" ]; then
       echo "Backing up existing file: $dest -> $dest.backup"
@@ -82,7 +82,7 @@ create_symlink() {
       rm "$dest"
     fi
   fi
-  
+
   echo "Creating symlink: $src -> $dest"
   ln -sf "$src" "$dest"
 }
@@ -116,7 +116,7 @@ create_symlink "$DOTFILES_DIR/bash_scripts/compress_video.sh" "$HOME/.local/bin/
 
 # Add local bin to PATH if not already there
 if ! grep -q "$HOME/.local/bin" "$HOME/.zshrc"; then
-  echo 'export PATH="$HOME/.local/bin:$PATH"' >> "$HOME/.zshrc"
+  echo 'export PATH="$HOME/.local/bin:$PATH"' >>"$HOME/.zshrc"
 fi
 
 # Setup LazyVim (Neovim config)
@@ -126,7 +126,7 @@ echo "Setting up Neovim..."
 brew install ripgrep fd
 
 # Make sure Neovim plugins are installed
-if command -v nvim &> /dev/null; then
+if command -v nvim &>/dev/null; then
   echo "Installing Neovim plugins..."
   nvim --headless "+Lazy! sync" +qa
 else
@@ -134,15 +134,15 @@ else
 fi
 
 # Install starship prompt if not already done
-if ! command -v starship &> /dev/null; then
+if ! command -v starship &>/dev/null; then
   echo "Installing starship prompt..."
   curl -sS https://starship.rs/install.sh | sh -s -- -y
 fi
 
 # Setup Zoxide
-if command -v zoxide &> /dev/null; then
+if command -v zoxide &>/dev/null; then
   echo "Setting up zoxide..."
-  zoxide init zsh > /dev/null
+  zoxide init zsh >/dev/null
 fi
 
 # Install tmux plugins
@@ -151,7 +151,8 @@ $HOME/.tmux/plugins/tpm/bin/install_plugins
 
 # Make scripts executable
 find "$DOTFILES_DIR/sketchybar/plugins" -type f -exec chmod +x {} \;
-
+brew services start sketchybar
+source~/.zshrc
 # Handle shell restart
 echo ""
 echo "===================================================="
