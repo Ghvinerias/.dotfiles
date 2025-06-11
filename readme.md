@@ -1,1 +1,1 @@
-# my macos setup
+# my macos setupp
