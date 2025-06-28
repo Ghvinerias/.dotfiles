@@ -115,3 +115,6 @@ esac
 # export PATH="$HOME/.codeium/windsurf/bin:$PATH"
 # export PATH="/opt/homebrew/opt/postgresql@17/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
+
+# fun functions
+ghrccd() { gh repo clone "$1" && cd "${1##*/}"; }
