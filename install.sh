@@ -151,7 +151,7 @@ $HOME/.tmux/plugins/tpm/bin/install_plugins
 
 # Make scripts executable
 find "$DOTFILES_DIR/sketchybar/plugins" -type f -exec chmod +x {} \;
-brew services start sketchybar
+#brew services start sketchybar
 source~/.zshrc
 # Handle shell restart
 echo ""
