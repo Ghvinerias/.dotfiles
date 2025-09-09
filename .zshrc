@@ -118,3 +118,4 @@ export PATH="$HOME/.local/bin:$PATH"
 
 # fun functions
 ghrccd() { gh repo clone "$1" && cd "${1##*/}"; }
+export PATH="$HOME/.local/bin:$PATH"
