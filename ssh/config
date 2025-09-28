@@ -1,0 +1,19 @@
+# SSH Configuration with tmux auto-launch
+# This configuration will attempt to launch tmux when connecting to any server
+# Compatible with all Linux flavors and provides helpful error messages
+
+Host *
+    # Try to launch tmux automatically on connection
+    # This inline script checks for tmux and launches it or shows installation instructions
+    RemoteCommand bash -c 'if command -v tmux >/dev/null 2>&1; then exec tmux new-session -A -s main; else echo "============================================"; echo "  tmux is not installed on this server"; echo "============================================"; echo "You can install it with:"; echo "  Ubuntu/Debian: sudo apt update && sudo apt install tmux"; echo "  CentOS/RHEL:   sudo yum install tmux"; echo "  Fedora:        sudo dnf install tmux"; echo "  Alpine:        sudo apk add tmux"; echo "  Arch:          sudo pacman -S tmux"; echo "============================================"; echo; exec $SHELL; fi'
+    RequestTTY yes
+    
+    # Common SSH settings for better compatibility
+    ServerAliveInterval 60
+    ServerAliveCountMax 3
+    
+    # Prevent SSH from hanging on connection issues
+    ConnectTimeout 10
+    
+    # Enable compression for better performance over slow connections
+    Compression yes
