@@ -110,10 +110,16 @@ create_symlink "$DOTFILES_DIR/git/.gitconfig" "$HOME/.gitconfig"
 # GitHub CLI config
 create_symlink "$DOTFILES_DIR/gh" "$CONFIG_DIR/gh"
 
+# SSH config
+mkdir -p "$HOME/.ssh"
+create_symlink "$DOTFILES_DIR/ssh/config" "$HOME/.ssh/config"
+
 # Create bin directory for scripts
 mkdir -p "$HOME/.local/bin"
 chmod +x "$DOTFILES_DIR/bash_scripts/compress_video.sh"
 create_symlink "$DOTFILES_DIR/bash_scripts/compress_video.sh" "$HOME/.local/bin/compress_video"
+chmod +x "$DOTFILES_DIR/bash_scripts/tmux-auto-launch.sh"
+create_symlink "$DOTFILES_DIR/bash_scripts/tmux-auto-launch.sh" "$HOME/.local/bin/tmux-auto-launch"
 
 # Add local bin to PATH if not already there
 if ! grep -q "$HOME/.local/bin" "$HOME/.zshrc"; then
