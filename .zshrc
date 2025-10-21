@@ -119,3 +119,9 @@ export PATH="$HOME/.local/bin:$PATH"
 # fun functions
 ghrccd() { gh repo clone "$1" && cd "${1##*/}"; }
 export PATH="$HOME/.local/bin:$PATH"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/aleksandre_ghvineria/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/aleksandre_ghvineria/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/aleksandre_ghvineria/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/aleksandre_ghvineria/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
