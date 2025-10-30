@@ -17,8 +17,7 @@ source $ZSH/oh-my-zsh.sh
 export COREPACK_ENABLE_AUTO_PIN=0
 
 export EDITOR="nvim"
-
-alias cat="bat"
+alias terraform="tofu"
 
 alias v="nvim"
 alias c="clear"
@@ -79,6 +78,7 @@ function y() {
 }
 
 eval "$(zoxide init zsh)"
+eval "$(bws completions)"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
