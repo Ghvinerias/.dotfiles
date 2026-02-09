@@ -1,3 +1,5 @@
+# Kiro CLI pre block. Keep at the top of this file.
+[[ -f "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.pre.zsh"
 export ZSH="$HOME/.oh-my-zsh"
 
 export MANPAGER="nvim +Man!"
@@ -22,6 +24,9 @@ alias terraform="tofu"
 alias v="nvim"
 alias c="clear"
 alias s="source ~/.zshrc"
+
+alias k="kubectl"
+
 
 alias ave="ansible-vault encrypt"
 alias avd="ansible-vault decrypt"
@@ -51,7 +56,14 @@ alias gma="git merge --abort"
 alias glog="git log --oneline --decorate --graph"
 alias gsw="git switch"
 alias gfp="git fetch --prune --all"
+alias gs="git status"
 
+alias ap="ansible-playbook"
+
+
+alias switch_router_tunnel="curl http://192.168.1.1/cgi-bin/luci/command/cfg099944"
+
+#alias q=amazon-q
 # alias ld="eza -lD"
 # alias lf="eza -lf --color=always | grep -v /"
 # alias lh="eza -dl .* --group-directories-first"
@@ -79,6 +91,8 @@ function y() {
 
 eval "$(zoxide init zsh)"
 eval "$(bws completions)"
+eval "$(kubectl completion zsh)"
+
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -125,3 +139,6 @@ if [ -f '/Users/aleksandre_ghvineria/Downloads/google-cloud-sdk/path.zsh.inc' ];
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/aleksandre_ghvineria/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/aleksandre_ghvineria/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+
+# Kiro CLI post block. Keep at the bottom of this file.
+[[ -f "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.post.zsh"
